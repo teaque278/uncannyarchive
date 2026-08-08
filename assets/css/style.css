@@ -135,7 +135,7 @@ a:visited { color: #800080; }
 .nav-item-dropdown:hover .nav-dropdown { display: block; }
 
 .nav-dropdown p {
-  margin: 0;
+  margin: 32px 32px 12px 32px;
   font-size: 12px;
   color: var(--win-black);
 }
