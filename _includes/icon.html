@@ -1,0 +1,28 @@
+{% assign i = include.name %}
+{% if i == "folder" %}
+<svg viewBox="0 0 16 16" class="pxicon" shape-rendering="crispEdges">
+  <rect x="1" y="3" width="6" height="2" fill="#ffda66"/>
+  <rect x="1" y="5" width="14" height="9" fill="#ffcc33"/>
+  <rect x="1" y="5" width="14" height="9" fill="none" stroke="#805500" stroke-width="0.6"/>
+  <rect x="1" y="3" width="6" height="2" fill="none" stroke="#805500" stroke-width="0.6"/>
+</svg>
+{% elsif i == "globe" %}
+<svg viewBox="0 0 16 16" class="pxicon" shape-rendering="crispEdges">
+  <circle cx="8" cy="8" r="6.5" fill="#3a7bd5" stroke="#1a3d70" stroke-width="0.6"/>
+  <path d="M1.5 8h13M8 1.5v13M3 3.5c2 2 8 2 10 0M3 12.5c2-2 8-2 10 0" stroke="#bcd8ff" stroke-width="0.6" fill="none"/>
+</svg>
+{% elsif i == "floppy" %}
+<svg viewBox="0 0 16 16" class="pxicon" shape-rendering="crispEdges">
+  <rect x="1.5" y="1.5" width="13" height="13" fill="#4b5a75" stroke="#1c2333" stroke-width="0.6"/>
+  <rect x="4" y="1.5" width="7" height="4.5" fill="#c9d3e0"/>
+  <rect x="9" y="1.5" width="1.5" height="4.5" fill="#7c879c"/>
+  <rect x="3" y="8" width="10" height="6" fill="#e8ecf2" stroke="#1c2333" stroke-width="0.4"/>
+</svg>
+{% elsif i == "computer" %}
+<svg viewBox="0 0 16 16" class="pxicon" shape-rendering="crispEdges">
+  <rect x="1.5" y="2" width="13" height="9" fill="#d8d8d8" stroke="#5a5a5a" stroke-width="0.6"/>
+  <rect x="2.7" y="3.1" width="10.6" height="6.8" fill="#3a7bd5"/>
+  <rect x="6" y="11" width="4" height="1.5" fill="#b0b0b0"/>
+  <rect x="4.5" y="12.5" width="7" height="1.2" fill="#c8c8c8" stroke="#5a5a5a" stroke-width="0.4"/>
+</svg>
+{% endif %}
