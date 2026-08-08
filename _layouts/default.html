@@ -13,11 +13,21 @@
   <div class="grain-overlay" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="site-header__mark" href="{{ '/' | relative_url }}">Uncanny Archive</a>
-    <nav class="site-header__nav">
+ <nav class="site-header__nav">
       <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/#dispatches' | relative_url }}">Archive</a>
+      <a href="{{ '/#essays' | relative_url }}">Archive</a>
+      <div class="nav-item-dropdown">
+        <a href="{{ '/essays/' | relative_url }}">Essays</a>
+        <div class="nav-dropdown">
+          <p>Rabbit hole opening soon.</p>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="{{ '/recommendations/' | relative_url }}">Recommendations</a>
+        <div class="nav-dropdown">
+          <p>Rabbit hole opening soon.</p>
+        </div>
+      </div>
     </nav>
   </header>
 
