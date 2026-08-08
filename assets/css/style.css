@@ -16,8 +16,9 @@
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #bfe0f5 0%, #dcefe0 55%, #cfe8c8 100%);
-  background-attachment: fixed;
+  background: #1a9494;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
   color: var(--win-black);
   font-family: var(--font-ui);
   font-size: 13px;
