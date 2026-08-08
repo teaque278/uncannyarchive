@@ -16,26 +16,46 @@ layout: default
   </div>
 </section>
 
-<section class="dispatches" id="dispatches">
-  <h2 class="section-label">Latest Dispatches</h2>
-
+<section class="dispatches" id="essays">
+  <h2 class="section-label">{% include icon.html name="folder" %} Essays</h2>
   <div class="dispatch-list">
-    {% for post in site.posts %}
+    {% assign essays = site.posts | where: "section", "essay" %}
+    {% for post in essays %}
     <article class="dispatch-card">
       <a class="dispatch-card__stamp-link" href="{{ post.url | relative_url }}">
-        {% if post.rating %}
-          {% include stamp.html rating=post.rating id=post.slug %}
-        {% endif %}
+        {% if post.rating %}{% include stamp.html rating=post.rating id=post.slug %}{% endif %}
       </a>
       <div class="dispatch-card__body">
         <span class="dispatch-card__date">{{ post.date | date: '%d %b %Y' }}{% if post.genre %} &middot; {{ post.genre }}{% endif %}</span>
         <h3 class="dispatch-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p class="dispatch-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
-        <a class="dispatch-card__link" href="{{ post.url | relative_url }}">Read the full review &rarr;</a>
+        <a class="dispatch-card__link" href="{{ post.url | relative_url }}">Read the full essay &rarr;</a>
       </div>
     </article>
     {% else %}
-    <p class="empty-note">No dispatches filed yet. The first review is coming soon.</p>
+    <p class="empty-note">{% include icon.html name="folder" %} No essays filed yet.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="dispatches" id="recommendations">
+  <h2 class="section-label">{% include icon.html name="floppy" %} Recommendations</h2>
+  <div class="dispatch-list">
+    {% assign recs = site.posts | where: "section", "recommendation" %}
+    {% for post in recs %}
+    <article class="dispatch-card">
+      <a class="dispatch-card__stamp-link" href="{{ post.url | relative_url }}">
+        {% if post.rating %}{% include stamp.html rating=post.rating id=post.slug %}{% endif %}
+      </a>
+      <div class="dispatch-card__body">
+        <span class="dispatch-card__date">{{ post.date | date: '%d %b %Y' }}{% if post.genre %} &middot; {{ post.genre }}{% endif %}</span>
+        <h3 class="dispatch-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="dispatch-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+        <a class="dispatch-card__link" href="{{ post.url | relative_url }}">See the recommendation &rarr;</a>
+      </div>
+    </article>
+    {% else %}
+    <p class="empty-note">{% include icon.html name="folder" %} No recommendations filed yet.</p>
     {% endfor %}
   </div>
 </section>
