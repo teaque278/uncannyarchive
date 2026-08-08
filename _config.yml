@@ -1,1 +1,4 @@
-theme: jekyll-theme-minimal
+title: Uncanny Archive
+description: A chronicle of horror and thriller cinema — reviews, rankings, and recommendations.
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
