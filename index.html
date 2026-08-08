@@ -16,4 +16,40 @@ layout: default
   </div>
 </section>
 
+<section class="dispatches" id="essays">
+  <div class="dispatch-list">
+    {% assign essays = site.posts | where: "section", "essay" %}
+    {% for post in essays %}
+    <article class="dispatch-card">
+      <a class="dispatch-card__stamp-link" href="{{ post.url | relative_url }}">
+        {% if post.rating %}{% include stamp.html rating=post.rating id=post.slug %}{% endif %}
+      </a>
+      <div class="dispatch-card__body">
+        <span class="dispatch-card__date">{{ post.date | date: '%d %b %Y' }}{% if post.genre %} &middot; {{ post.genre }}{% endif %}</span>
+        <h3 class="dispatch-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="dispatch-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+        <a class="dispatch-card__link" href="{{ post.url | relative_url }}">Read the full essay &rarr;</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
 
+<section class="dispatches" id="recommendations">
+  <div class="dispatch-list">
+    {% assign recs = site.posts | where: "section", "recommendation" %}
+    {% for post in recs %}
+    <article class="dispatch-card">
+      <a class="dispatch-card__stamp-link" href="{{ post.url | relative_url }}">
+        {% if post.rating %}{% include stamp.html rating=post.rating id=post.slug %}{% endif %}
+      </a>
+      <div class="dispatch-card__body">
+        <span class="dispatch-card__date">{{ post.date | date: '%d %b %Y' }}{% if post.genre %} &middot; {{ post.genre }}{% endif %}</span>
+        <h3 class="dispatch-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="dispatch-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+        <a class="dispatch-card__link" href="{{ post.url | relative_url }}">See the recommendation &rarr;</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
