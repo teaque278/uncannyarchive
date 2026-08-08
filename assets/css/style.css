@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  background: #1a9494;
+  background: #F294DD;
   background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
   background-size: 3px 3px;
   color: var(--win-black);
