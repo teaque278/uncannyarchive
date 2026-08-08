@@ -147,7 +147,7 @@ a:visited { color: #800080; }
   padding: 20px 12px;
   display: block;
   background-color: #10108c;
-  background-image: url('/assets/img/tunnel.jpg');
+  background-image: url('../img/tunnel.jpg');
   background-size: cover;
   background-position: center;
   image-rendering: pixelated;
