@@ -236,3 +236,15 @@ a:visited { color: #800080; }
 @media (max-width: 560px) {
   .dispatch-card { flex-direction: column; }
 }
+
+/* ===== Pixel icons ===== */
+.pxicon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 6px;
+  image-rendering: pixelated;
+}
+
+.section-label { display: flex; align-items: center; justify-content: center; }
+.empty-note { display: flex; align-items: center; justify-content: center; gap: 4px; }
