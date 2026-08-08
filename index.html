@@ -16,8 +16,25 @@ layout: default
   </div>
 </section>
 
+---
+layout: default
+---
+<section class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">Est. {{ site.time | date: '%Y' }} &middot; A Cinema of Dread</p>
+    <h1 class="hero__title">Uncanny<br>Archive</h1>
+    <p class="hero__tagline">Reviews, rankings, and recommendations<br>from the darker end of the aisle.</p>
+  </div>
+  <div class="hero__tear" aria-hidden="true"></div>
+</section>
+
+<section class="intro">
+  <div class="intro__ticket">
+    <p>Every film here has been watched, weighed, and filed. Slashers, folk horror, found footage, quiet psychological dread — if it earns a place on the shelf, it earns a write-up. Ratings are stamped, opinions are final, refunds are not offered.</p>
+  </div>
+</section>
+
 <section class="dispatches" id="essays">
-  <h2 class="section-label">{% include icon.html name="folder" %} Essays</h2>
   <div class="dispatch-list">
     {% assign essays = site.posts | where: "section", "essay" %}
     {% for post in essays %}
@@ -32,14 +49,11 @@ layout: default
         <a class="dispatch-card__link" href="{{ post.url | relative_url }}">Read the full essay &rarr;</a>
       </div>
     </article>
-    {% else %}
-    <p class="empty-note">{% include icon.html name="folder" %} No essays filed yet.</p>
     {% endfor %}
   </div>
 </section>
 
 <section class="dispatches" id="recommendations">
-  <h2 class="section-label">{% include icon.html name="floppy" %} Recommendations</h2>
   <div class="dispatch-list">
     {% assign recs = site.posts | where: "section", "recommendation" %}
     {% for post in recs %}
@@ -54,8 +68,7 @@ layout: default
         <a class="dispatch-card__link" href="{{ post.url | relative_url }}">See the recommendation &rarr;</a>
       </div>
     </article>
-    {% else %}
-    <p class="empty-note">{% include icon.html name="folder" %} No recommendations filed yet.</p>
     {% endfor %}
   </div>
 </section>
+
