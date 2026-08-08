@@ -1,40 +1,241 @@
-/* ===== Tokens ===== */
+/* ===== Tokens: Windows 95 chrome ===== */
 :root {
-  --paper: #dccba0;
-  --paper-dark: #c9b588;
-  --ink: #1c1611;
-  --ink-soft: #2c241c;
-  --blood: #7a1620;
-  --mustard: #b4842a;
-  --moss: #3f4a34;
+  --win-grey: #c0c0c0;
+  --win-grey-dark: #808080;
+  --win-grey-light: #dfdfdf;
+  --win-blue: #000080;
+  --win-blue-light: #1084d0;
+  --win-black: #000000;
+  --win-white: #ffffff;
+  --win-red: #aa0000;
+  --desktop-teal: #008080;
 
-  --font-display: 'Butcherman', cursive;
-  --font-heading: 'Rye', serif;
-  --font-body: 'Vollkorn', serif;
-  --font-mono: 'Special Elite', monospace;
+  --font-ui: 'Tahoma', 'Geneva', 'MS Sans Serif', sans-serif;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  position: relative;
+  background: var(--desktop-teal);
+  background-image: radial-gradient(var(--win-grey-dark) 1px, transparent 1px);
+  background-size: 3px 3px;
+  color: var(--win-black);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-a { color: var(--blood); }
-a:hover { color: var(--ink); }
+a { color: var(--win-blue); }
+a:visited { color: #800080; }
 
-/* ===== Atmosphere: grain + vignette ===== */
-.grain-overlay {
-  position: fixed;
-  inset: 0;
+/* remove the old grain/vignette effects entirely */
+.grain-overlay, .vignette { display: none; }
+
+/* ===== 3D bevel helpers, reused everywhere ===== */
+.site-header,
+.hero__inner,
+.intro__ticket,
+.dispatch-card,
+.dispatch-card__link,
+.back-link,
+.review {
+  background: var(--win-grey);
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+  box-shadow: inset -1px -1px 0 var(--win-grey-dark), inset 1px 1px 0 var(--win-grey-light);
+}
+
+/* ===== Header (title bar) ===== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px;
+  padding: 0;
+  background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light));
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+}
+
+.site-header__mark {
+  color: var(--win-white);
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-family: var(--font-ui);
+}
+
+.site-header__mark::before { content: "🖥 "; }
+
+.site-header__nav { padding-right: 8px; display: flex; gap: 6px; }
+
+.site-header__nav a {
+  color: var(--win-black);
+  text-decoration: none;
+  font-size: 12px;
+  background: var(--win-grey);
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+  padding: 2px 10px;
+}
+
+.site-header__nav a:active {
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+}
+
+/* ===== Hero (the "Wizard" window) ===== */
+.hero {
+  min-height: unset;
+  padding: 20px 12px;
+  background: transparent;
+  display: block;
+}
+
+.hero__inner {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  text-align: left;
+}
+
+.hero__eyebrow {
+  font-size: 11px;
+  color: var(--win-grey-dark);
+  margin-bottom: 6px;
+}
+
+.hero__title {
+  font-family: var(--font-ui);
+  color: var(--win-blue);
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  text-shadow: 1px 1px 0 var(--win-white);
+}
+
+.hero__tagline {
+  font-family: var(--font-ui);
+  color: var(--win-black);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.hero__tear { display: none; }
+
+/* ===== Intro (inset panel, like a message box) ===== */
+.intro { padding: 0 12px 16px; }
+
+.intro__ticket {
+  max-width: 560px;
+  margin: 0 auto;
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+  padding: 16px 20px;
+}
+
+.intro__ticket p { margin: 0; font-style: normal; }
+
+/* ===== Section label (title bar strip) ===== */
+.section-label {
+  font-family: var(--font-ui);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--win-white);
+  background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light));
+  border-bottom: none;
+  display: block;
+  width: fit-content;
+  padding: 4px 12px;
+  margin: 0 auto 20px;
+}
+
+.dispatches { padding: 0 12px 40px; }
+
+/* ===== Dispatch cards (each a little window) ===== */
+.dispatch-list { max-width: 560px; }
+
+.dispatch-card {
+  padding: 14px 16px;
+  border-bottom: 2px solid;
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+}
+
+.dispatch-card__stamp-link { width: 64px; }
+
+.dispatch-card__date { font-size: 11px; text-transform: none; letter-spacing: normal; }
+
+.dispatch-card__title {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--win-blue);
+}
+
+.dispatch-card__link {
+  display: inline-block;
+  padding: 3px 12px;
+  font-size: 11px;
+  text-decoration: none;
+  color: var(--win-black);
+}
+
+.dispatch-card__link:active {
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+}
+
+.empty-note { font-size: 12px; }
+
+/* ===== Stamp — recolored to classic red/blue badge ===== */
+.stamp { transform: rotate(-4deg); }
+.stamp-ring-outer, .stamp-ring-inner { stroke: var(--win-red); mix-blend-mode: normal; opacity: 1; }
+.stamp-text { fill: var(--win-blue); mix-blend-mode: normal; font-family: var(--font-ui); }
+.stamp-rating { fill: var(--win-red); mix-blend-mode: normal; font-family: var(--font-ui); font-weight: bold; }
+
+/* ===== Single review page ===== */
+.review { max-width: 560px; margin: 20px auto; padding: 20px 28px 32px; }
+
+.review__meta { font-size: 11px; text-transform: none; letter-spacing: normal; }
+.review__title {
+  font-family: var(--font-ui);
+  font-size: 22px;
+  color: var(--win-blue);
+  border-bottom: 2px solid var(--win-grey-dark);
+}
+
+.review__stamp-wrap { width: 100px; }
+
+.back-link {
+  padding: 4px 14px;
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--win-black);
+}
+
+.back-link:active {
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--win-white);
+  font-size: 11px;
+  background: none;
+}
+
+.site-footer p::after {
+  content: " Best viewed at 800×600.";
+  opacity: 0.8;
+}
+
+@media (max-width: 560px) {
+  .dispatch-card { flex-direction: column; }
+}  inset: 0;
   pointer-events: none;
   z-index: 50;
   opacity: 0.06;
