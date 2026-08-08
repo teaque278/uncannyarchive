@@ -29,9 +29,6 @@ body {
 a { color: var(--win-blue); }
 a:visited { color: #800080; }
 
-/* remove the old grain/vignette effects entirely */
-.grain-overlay, .vignette { display: none; }
-
 /* ===== 3D bevel helpers, reused everywhere ===== */
 .site-header,
 .hero__inner,
@@ -315,3 +312,43 @@ body {
 }
 
 .rabbit-hole__box p { margin: 0; }
+
+/* ===== Grain fix (stronger + guaranteed to apply) ===== */
+.grain-overlay {
+  display: block !important;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.15 !important;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+/* ===== Nav: equal-size tabs sitting on a ribbon ===== */
+.site-header__nav {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  border-bottom: 3px solid var(--win-grey-dark);
+  padding-bottom: 0;
+}
+
+.site-header__nav a,
+.nav-item-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item-dropdown > a {
+  flex: 1;
+}
+
+.site-header__nav > a,
+.nav-item-dropdown > a {
+  padding: 6px 14px;
+  border-bottom: none;
+  position: relative;
+  top: 1px;
+}
