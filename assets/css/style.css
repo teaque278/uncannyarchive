@@ -226,3 +226,26 @@ a:visited { color: #800080; }
   .site-header { flex-direction: column; gap: 8px; }
   .site-header__nav { flex-wrap: wrap; }
 }
+
+/* ===== 8-bit tunnel background for hero ===== */
+.hero {
+  position: relative;
+  background: #10108c;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  image-rendering: pixelated;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 120' shape-rendering='crispEdges'><rect width='160' height='120' fill='%232727b0'/><polygon points='0,0 160,0 100,40 60,40' fill='%234040c8'/><polygon points='0,120 160,120 100,80 60,80' fill='%231a1a80'/><polygon points='0,0 0,120 60,80 60,40' fill='%23c8c8d8'/><polygon points='160,0 160,120 100,80 100,40' fill='%23a0a0b8'/><rect x='60' y='40' width='40' height='40' fill='%23000010'/><line x1='0' y1='0' x2='60' y2='40' stroke='%23000030' stroke-width='1'/><line x1='0' y1='120' x2='60' y2='80' stroke='%23000030' stroke-width='1'/><line x1='160' y1='0' x2='100' y2='40' stroke='%23000030' stroke-width='1'/><line x1='160' y1='120' x2='100' y2='80' stroke='%23000030' stroke-width='1'/><rect x='0' y='10' width='60' height='4' fill='%23000030'/><rect x='0' y='30' width='55' height='4' fill='%23000030'/><rect x='5' y='50' width='50' height='4' fill='%23000030'/><rect x='8' y='68' width='45' height='4' fill='%23000030'/><rect x='100' y='10' width='60' height='4' fill='%23000030'/><rect x='105' y='30' width='55' height='4' fill='%23000030'/><rect x='105' y='50' width='50' height='4' fill='%23000030'/><rect x='107' y='68' width='45' height='4' fill='%23000030'/></svg>");
+  background-size: 100% 100%;
+  opacity: 0.9;
+}
+
+.hero__inner, .hero__tear {
+  position: relative;
+  z-index: 1;
+}
