@@ -53,3 +53,22 @@ layout: default
     {% endfor %}
   </div>
 </section>
+
+<section class="dispatches" id="articles">
+  <div class="dispatch-list">
+    {% assign articles = site.posts | where: "section", "article" %}
+    {% for post in articles %}
+    <article class="dispatch-card">
+      <a class="dispatch-card__stamp-link" href="{{ post.url | relative_url }}">
+        {% if post.rating %}{% include stamp.html rating=post.rating id=post.slug %}{% endif %}
+      </a>
+      <div class="dispatch-card__body">
+        <span class="dispatch-card__date">{{ post.date | date: '%d %b %Y' }}{% if post.genre %} &middot; {{ post.genre }}{% endif %}</span>
+        <h3 class="dispatch-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="dispatch-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+        <a class="dispatch-card__link" href="{{ post.url | relative_url }}">Read the take &rarr;</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
